@@ -1,0 +1,16 @@
+services:
+  jeonse-postgres:
+    image: pgvector/pgvector:pg14
+    container_name: jeonse-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: jeonse_guard
+      POSTGRES_USER: jeonse
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5434:5432"
+    volumes:
+      - jeonse-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  jeonse-postgres-data:
